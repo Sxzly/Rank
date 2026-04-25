@@ -1,0 +1,44 @@
+-- ============================================
+-- SCRIPT PARA RECONECTAR EN BEDWARS
+-- INSTRUCCIONES:
+-- 1. Ejecuta esto estando DENTRO de una partida
+-- 2. Cuando te saques y vuelvas al lobby, ejecuta LO MISMO
+-- ============================================
+
+local TeleportService = game:GetService("TeleportService")
+
+-- Revisar si ya hay un ID guardado
+local idGuardado = _G.MiPartidaBedWars
+
+if idGuardado == nil then
+    -- ========== ESTAS EN PARTIDA: GUARDA EL ID ==========
+    _G.MiPartidaBedWars = game.JobId
+    
+    -- Copiar al portapapeles
+    if setclipboard then
+        setclipboard(_G.MiPartidaBedWars)
+    end
+    
+    print("")
+    print("========================================")
+    print("✅ ID GUARDADO!")
+    print("📋 ID: " .. _G.MiPartidaBedWars)
+    print("📋 Copiado al portapapeles")
+    print("========================================")
+    print("")
+    print("👉 Cuando te saques del juego y vuelvas al lobby,")
+    print("👉 Ejecuta ESTE MISMO SCRIPT otra vez")
+    print("========================================")
+    
+else
+    -- ========== ESTAS EN LOBBY: RECONECTA ==========
+    print("")
+    print("========================================")
+    print("🔄 RECONECTANDO...")
+    print("📋 ID guardado: " .. idGuardado)
+    print("========================================")
+    print("")
+    
+    wait(1)
+    TeleportService:TeleportToPlaceInstance(game.PlaceId, idGuardado)
+end
