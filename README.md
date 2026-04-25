@@ -1,4 +1,4 @@
-# 🔷 RANK RECONNECT - BedWars 
+# 🔷 RANK RECONNECT - BedWars  
 
 Script para reconectar a tu partida de BedWars cuando se te corta el internet.
 
